@@ -19,9 +19,17 @@ namespace Student_Registration.Controllers
 {
     public class responce {
         public string? message { get; set; }
+        public List<SpecialArea> area { get; set; }
+        public List<SpecialPlace> place { get; set; }
 
-        public SpecialEntryModel data { get; set; }
-
+    }
+    public class SpecialArea
+    {
+        public string? area { get; set; }
+    }
+    public class SpecialPlace
+    {
+        public string? place { get; set; }
     }
     public class cheakgid
     {
@@ -87,7 +95,8 @@ namespace Student_Registration.Controllers
         // POST api/<GatepassController>
         [HttpPost]
         public async Task<IActionResult> Entry([FromBody] EntryGatepass value)
-        { int gid_count = value.gid.Count();
+        { 
+            int gid_count = value.gid.Count();
 
             for (var i = 0; i < gid_count; i++)
             {
@@ -126,10 +135,11 @@ namespace Student_Registration.Controllers
                         gatepass.date = DateTime.Now;
                         dbContext.Gatepass.Add(gatepass);
                         await dbContext.SaveChangesAsync();
+                        
                     }
                     catch
                     {
-                        return Ok("Gid is not valid");
+                        
                     }
                 }
                 else
@@ -180,37 +190,51 @@ namespace Student_Registration.Controllers
 
         }
         [HttpGet("{gid}")]
-        public responce GetRegularList(string gid)
+        public IActionResult GetRegularList(string gid)
         {
             responce responce = new responce();
             try
             {
-                SpecialEntryModel specialentrydata = dbContext.specialmodel.Where(e => e.gid == gid).OrderBy(e => e.Id).Last();
+                List<SpecialEntryModel> specialentrydata =dbContext.specialmodel.Where(e => e.gid == gid).ToList();
                 responce.message = "Success";
-                responce.data = specialentrydata;
-                return responce;
+                List<SpecialArea> areas = new List<SpecialArea>();
+                List<SpecialPlace> places = new List<SpecialPlace>();
+                for (int i = 0; i < specialentrydata.Count; i++)
+                {
+                    SpecialArea list = new SpecialArea();
+                    list.area = specialentrydata[i].area;
+                    areas.Add(list); 
+                    SpecialPlace place = new SpecialPlace();
+                    place.place = specialentrydata[i].place;
+                    places.Add(place);
+
+                }
+                responce.area = areas;
+                responce.place = places;
+                return Ok(responce);
             }
             catch (Exception ex)
             {
                 responce.message = "Error Ouccer";
-                responce.data = new SpecialEntryModel();
-                return responce;
+                responce.area = new List<SpecialArea>();
+                responce.place = new List<SpecialPlace>();
+                return Ok(responce);
             }
         }
         [HttpGet]
         public IActionResult GetAreas()
         {
-            return Ok(dbContext.area);
+            return Ok(dbContext.area.OrderBy(e=>e.area));
         }
         [HttpGet]
         public IActionResult GetPlaces()
         {
-            return Ok(dbContext.place);
+            return Ok(dbContext.place.OrderBy(e => e.place));
         }
         [HttpGet]
         public IActionResult GetReason()
         {
-            return Ok(dbContext.reasons);
+            return Ok(dbContext.reasons.OrderBy(e => e.reason));
         }
     }
 }

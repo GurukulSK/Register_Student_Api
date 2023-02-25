@@ -59,7 +59,7 @@ namespace Student_Registration.Controllers
             dbContext.SaveChanges();
             int id = dbContext.otp.Where(e => e.otp == number).Where(e => e.gid == gid).OrderBy(e=>e.Id).Last().Id;
             var bot = new TelegramBot("5851040555:AAFWjOGSBUgUyxuqZHqahNi6oBvueEo988o",httpclient);
-            SendMessage sendMessage = new SendMessage(-1001493712763, "<b>" + gid + "</b>\n" + "OTP:" + number);
+            SendMessage sendMessage = new SendMessage(-1001873566418, "<b>" + gid + "</b>\n" + "OTP:" + number);
             sendMessage.ParseMode = SendMessage.ParseModeEnum.HTML;
             var me = await bot.MakeRequestAsync(sendMessage);
             return new otpresponce { verify_id = id, verify = false };

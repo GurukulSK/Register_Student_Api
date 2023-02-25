@@ -1,30 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Smart Gurukul\\source\\repos\\Student_Registration\\Student_Registration\\Student_Registration.csproj": {}
+    "C:\\xampp\\htdocs\\Student_Registration\\Student_Registration\\Student_Registration.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Smart Gurukul\\source\\repos\\Student_Registration\\Student_Registration\\Student_Registration.csproj": {
+    "C:\\xampp\\htdocs\\Student_Registration\\Student_Registration\\Student_Registration.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Smart Gurukul\\source\\repos\\Student_Registration\\Student_Registration\\Student_Registration.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\Student_Registration\\Student_Registration\\Student_Registration.csproj",
         "projectName": "Student_Registration",
-        "projectPath": "C:\\Users\\Smart Gurukul\\source\\repos\\Student_Registration\\Student_Registration\\Student_Registration.csproj",
-        "packagesPath": "C:\\Users\\Smart Gurukul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Smart Gurukul\\source\\repos\\Student_Registration\\Student_Registration\\obj\\",
+        "projectPath": "C:\\xampp\\htdocs\\Student_Registration\\Student_Registration\\Student_Registration.csproj",
+        "packagesPath": "C:\\WINDOWS\\system32\\config\\systemprofile\\.nuget\\packages\\",
+        "outputPath": "C:\\xampp\\htdocs\\Student_Registration\\Student_Registration\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Smart Gurukul\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -97,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
         }
       }
     }
